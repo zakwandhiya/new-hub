@@ -9,6 +9,12 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
+import { Container, Header, Content, Tab, Tabs , Footer , Button, Icon  , FooterTab} from 'native-base';
+import IDE from './src/ide';
+import INSPIRASI from './src/inspirasi';
+import BERITA from './src/berita';
+
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -20,11 +26,39 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <Container>
+      <Header hasTabs />
+      <Tabs>
+        <Tab heading="IDE">
+          <IDE />
+        </Tab>
+        <Tab heading="INSPIRASI">
+          <INSPIRASI />
+        </Tab>
+        <Tab heading="BERITA">
+          <BERITA />
+        </Tab>
+      </Tabs>
+      <Footer>
+          <FooterTab>
+            <Button active>
+              <Icon active name="home" />
+            </Button>
+            <Button>
+              <Icon name="alert" />
+            </Button>
+            <Button >
+              <Icon name="add" />
+            </Button>
+            <Button >
+              <Icon name="chatboxes" />
+            </Button>
+            <Button>
+              <Icon name="person" />
+            </Button>
+          </FooterTab>
+        </Footer>
+    </Container>
     );
   }
 }
